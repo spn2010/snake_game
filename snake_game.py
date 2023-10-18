@@ -1,6 +1,7 @@
 import pygame
 import time
 import random
+import textwrap
 
 # initiating of pygame
 pygame.init()
@@ -21,8 +22,8 @@ clock = pygame.time.Clock()
 snake_size = 10
 snake_speed = 20
 
-message_font = pygame.font.Font('PressStart2P-vaV7.ttf', 20)
-score_font = pygame.font.Font('PressStart2P-vaV7.ttf', 20)
+message_font = pygame.font.Font('PressStart2P-vaV7.ttf', 15)
+score_font = pygame.font.Font('PressStart2P-vaV7.ttf', 15)
 
 def print_score(score):
     text = score_font.render(str(score), True, white)
@@ -55,6 +56,10 @@ def run_game():
             game_display.fill(black)
             game_over_message = message_font.render("Потрачено!", True, white)
             game_display.blit(game_over_message, [width / 3, height / 3])
+            game_over_message = message_font.render("Закончить - 1", True, white)
+            game_display.blit(game_over_message, [width / 5, height / 2])
+            game_over_message = message_font.render("Для продолжения - 2", True, white)
+            game_display.blit(game_over_message, [width / 10, height / 1.5])
             print_score(snake_length - 1)
             pygame.display.update()
 
